@@ -446,6 +446,22 @@ document.addEventListener('DOMContentLoaded', () => {
   // 8. RSVP & GUESTBOOK (Interactive with localStorage)
   // -------------------------------------------------------------
   const STORAGE_KEY = 'wedding_wishes_Nurjaman_Nabilah_v1';
+  const legacyStorageKeys = [
+    'wedding_wishes_Nurjaman_Nabilah',
+    'wedding_wishes_Nurjaman_Nabilah_old',
+    'wedding_wishes_Nurjaman_Nabilah_v0',
+    'wedding_wishes_old',
+    'wedding_wishes_legacy'
+  ];
+
+  legacyStorageKeys.forEach((key) => {
+    try {
+      localStorage.removeItem(key);
+    } catch (error) {
+      console.warn('Gagal menghapus data lama guestbook:', error);
+    }
+  });
+
   const wishesForm = document.getElementById('wishes-form');
   const wishesList = document.getElementById('wishes-list');
   const wishesCountBadge = document.getElementById('wishes-count-badge');
