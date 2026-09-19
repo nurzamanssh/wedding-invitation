@@ -683,6 +683,16 @@ body {
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
   border: 4px solid #FFFFFF;
+  background: #F3EFE8;
+}
+
+.avatar-inner img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
 }
 
 .couple-svg-illustration {
@@ -1849,10 +1859,24 @@ body {
     grid-template-columns: 1fr;
   }
 
-  .couple-divider {
-    order: 2;
+  .couple-cards-container {
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+  }
+
+  .couple-card {
     width: 100%;
-    margin: -10px 0;
+    max-width: 420px;
+    flex-basis: 100%;
+    min-width: 0;
+    padding: 24px 14px;
+  }
+
+  .couple-divider {
+    order: 0;
+    width: 100%;
+    margin: -6px 0;
   }
 
   .ampersand {
@@ -1871,6 +1895,18 @@ body {
 
   .hero-title {
     font-size: 2.3rem;
+  }
+
+  .couple-cards-container {
+    gap: 14px;
+  }
+
+  .person-name {
+    font-size: 1.5rem;
+  }
+
+  .ampersand {
+    font-size: 2.8rem;
   }
 
   .countdown-grid {
