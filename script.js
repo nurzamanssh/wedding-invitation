@@ -249,8 +249,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // 5. COUNTDOWN TIMER TO WEDDING DAY
   // -------------------------------------------------------------
   function setupCountdown() {
-    // Target: 24 October 2026, 08:00 WIB
-    const weddingDate = new Date('2026-10-24T08:00:00+07:00').getTime();
+    // Target: 1 January 2027, 08:00 WIB
+    const weddingDate = new Date('2027-01-01T08:00:00+07:00').getTime();
 
     const daysEl = document.getElementById('days');
     const hoursEl = document.getElementById('hours');
@@ -353,12 +353,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnDownloadQris = document.getElementById('btn-download-qris');
   const modalDownloadBtn = document.getElementById('modal-download-btn');
   const originalQrisSvg = document.getElementById('qris-svg');
+  const originalQrisImg = document.getElementById('qris-img');
 
   function openQrisModal() {
     if (!qrisModal) return;
-    if (modalQrisTarget && originalQrisSvg && !modalQrisTarget.hasChildNodes()) {
-      const clone = originalQrisSvg.cloneNode(true);
-      modalQrisTarget.appendChild(clone);
+    if (modalQrisTarget) {
+      modalQrisTarget.innerHTML = '';
+      if (originalQrisImg) {
+        const clone = originalQrisImg.cloneNode(true);
+        clone.style.maxWidth = '100%';
+        clone.style.display = 'block';
+        clone.style.margin = '0 auto';
+        modalQrisTarget.appendChild(clone);
+      } else if (originalQrisSvg && !modalQrisTarget.hasChildNodes()) {
+        const clone = originalQrisSvg.cloneNode(true);
+        modalQrisTarget.appendChild(clone);
+      }
     }
     qrisModal.classList.remove('hidden');
   }
@@ -382,6 +392,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Function to download QRIS as PNG image
   function downloadQrisPng() {
+    if (originalQrisImg && originalQrisImg.src) {
+      const imageUrl = originalQrisImg.src;
+      const downloadLink = document.createElement('a');
+      downloadLink.href = imageUrl;
+      downloadLink.download = 'QRIS_Wedding_Nurjaman_Nabilah.jpg';
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+      showToast('Gambar QRIS berhasil diunduh!');
+      return;
+    }
+
     if (!originalQrisSvg) return;
 
     // Convert SVG to Canvas and trigger download
