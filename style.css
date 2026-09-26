@@ -58,14 +58,16 @@ html {
 }
 
 body {
-    /* Gradasi dari krem terang ke agak gelap */
-    background-image: linear-gradient(to bottom, #FFFFFF, #F3EAE1);
+    /* Gradasi dari Putih (#FFFFFF) di atas ke Pink Lembut (#FFE4E1) di bawah */
+    background-image: linear-gradient(to bottom, #FFFFFF, #FFE4E1);
     
     margin: 0;
     padding: 0;
+    
+    /* Memastikan gradasi setidaknya setinggi layar perangkat */
     min-height: 100vh;
     
-    /* Memastikan gradasi penuh satu layar dan tidak berulang */
+    /* Mengunci gradasi agar tetap mulus saat di-scroll */
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
