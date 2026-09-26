@@ -58,23 +58,26 @@ html {
 }
 
 body {
-  font-family: var(--font-sans);
-  background-color: var(--bg-main);
-  color: var(--text-body);
-  line-height: 1.68;
-  overflow-x: hidden;
-  position: relative;
+    /* 1. Reset margin bawaan browser */
+    margin: 0;
+    padding: 0;
 
-  background-image:
-    radial-gradient(circle at 10% 15%, rgba(246, 211, 215, 0.45) 0%, transparent 40%),
-    radial-gradient(circle at 90% 65%, rgba(213, 228, 216, 0.5) 0%, transparent 45%),
-    radial-gradient(circle at 30% 90%, rgba(223, 193, 133, 0.2) 0%, transparent 40%);
+    /* 2. Warna cadangan jika gambar gagal dimuat */
+    background-color: #f4f4f4;
 
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
+    /* 3. Masukkan gambar background */
+    background-image: url('assets/img/background.jpg');
+
+    /* 4. Properti kunci agar background stabil */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    /* 5. Pastikan tinggi elemen memenuhi layar */
+    min-height: 100vh;
+    width: 100%;
 }
-
 /* Falling Petals Canvas (Fixed in Background) */
 #petals-canvas {
   position: fixed;
@@ -1945,39 +1948,4 @@ body {
   .nav-item span {
     font-size: 0.65rem;
   }
-}
-
-
-/* Cross-browser background fix */
-html,
-body {
-  background: #FAF8F5 !important;
-  background-image: none !important;
-}
-
-.cover-screen {
-  background: #FAF4ED !important;
-  background-image: none !important;
-}
-
-.cover-overlay {
-  background: transparent !important;
-}
-
-.cover-content {
-  background: #FFFFFF !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-}
-
-.hero-verse-box,
-.couple-card,
-.event-card,
-.venue-card,
-.rsvp-form-card,
-.wishes-stream-card,
-.audio-btn,
-.bottom-nav {
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
 }
