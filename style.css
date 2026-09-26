@@ -58,25 +58,16 @@ html {
 }
 
 body {
-    /* 1. Reset margin bawaan browser */
+    /* Gradasi dari krem terang ke agak gelap */
+    background-image: linear-gradient(to bottom, #FFFFFF, #F3EAE1);
+    
     margin: 0;
     padding: 0;
-
-    /* 2. Warna cadangan jika gambar gagal dimuat */
-    background-color: #f4f4f4;
-
-    /* 3. Masukkan gambar background */
-    background-image: url('assets/img/background.jpg');
-
-    /* 4. Properti kunci agar background stabil */
-    background-size: cover;
-    background-position: center center;
+    min-height: 100vh;
+    
+    /* Memastikan gradasi penuh satu layar dan tidak berulang */
     background-repeat: no-repeat;
     background-attachment: fixed;
-
-    /* 5. Pastikan tinggi elemen memenuhi layar */
-    min-height: 100vh;
-    width: 100%;
 }
 /* Falling Petals Canvas (Fixed in Background) */
 #petals-canvas {
