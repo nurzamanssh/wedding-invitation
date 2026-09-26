@@ -58,18 +58,28 @@ html {
 }
 
 body {
-    /* Gradasi dari Putih (#FFFFFF) di atas ke Pink Lembut (#FFE4E1) di bawah */
-    background-image: linear-gradient(to bottom, #FFFFFF, #FFE4E1);
-    
     margin: 0;
     padding: 0;
-    
-    /* Memastikan gradasi setidaknya setinggi layar perangkat */
+    position: relative; 
     min-height: 100vh;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     
-    /* Mengunci gradasi agar tetap mulus saat di-scroll */
+    /* Ganti URL di bawah ini dengan link gambar pilihan Anda */
+    background-image: url('https://media.istockphoto.com/id/1330963152/vector/abstract-rose-blush-liquid-watercolor-background-with-golden-lines-dots-and-stains-pastel.jpg?s=612x612&w=0&k=20&c=sujzTgZj8Eyu12U4Jvi0VMElNnWPcptw2kbt4NYY4Tc='); 
+    
+    background-size: cover;
+    background-position: center center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    
+    z-index: -1; 
 }
 /* Falling Petals Canvas (Fixed in Background) */
 #petals-canvas {
